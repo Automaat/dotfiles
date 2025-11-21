@@ -3,6 +3,7 @@
 ## When You Change Dotfiles
 
 ### Method 1: Edit Through chezmoi (Recommended)
+
 ```bash
 # Edit source file directly
 chezmoi edit ~/.zshrc
@@ -15,6 +16,7 @@ chezmoi apply
 ```
 
 ### Method 2: Add Changed Files Back
+
 ```bash
 # Edit file directly in home directory
 vim ~/.zshrc
@@ -136,6 +138,20 @@ chezmoi status
 chezmoi forget ~/.zshrc
 ```
 
+## Update Claude Code Settings
+
+```bash
+# After changing settings or commands
+chezmoi add ~/.claude/settings.json
+chezmoi add ~/.claude/commands/new-command.md
+
+# Commit and push
+chezmoi cd
+git add .
+git commit -m "updated claude config"
+git push
+```
+
 ## Key Points
 
 - `run_onchange_` scripts re-execute when content changes (auto-detects Brewfile updates)
@@ -143,3 +159,5 @@ chezmoi forget ~/.zshrc
 - Changes pushed to GitHub, pulled on new machine with `chezmoi update`
 - Templates with `.tmpl` extension support variables and conditionals
 - `run_once_` scripts only run first time (tracked in `~/.local/share/chezmoi/.chezmoistate.boltdb`)
+- `.chezmoiignore` excludes machine-specific files like `.claude.json` (app state)
+- Claude settings/commands in `~/.claude/` sync, but local state doesn't
