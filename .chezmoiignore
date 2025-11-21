@@ -1,0 +1,28 @@
+# Exclude Claude Code app state (machine-specific)
+.claude.json
+.claude.json.backup
+
+# Exclude history files
+.zsh_history
+.zsh_history.backup
+.zsh_history_exits
+.python_history
+.irb_history
+.psql_history
+.lesshst
+.utop-history
+
+# Exclude cache files
+.zcompdump*
+
+# Exclude credentials
+.saml2aws
+.boto
+.aws/credentials
+.config/gcloud/credentials.db
+.config/gcloud/access_tokens.db
+.config/gcloud/application_default_credentials.json
+
+# Exclude generated files
+.fzf.zsh
+.fzf.bash
