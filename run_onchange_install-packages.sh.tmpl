@@ -1,0 +1,51 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -e
+
+echo "Installing Homebrew packages..."
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+tap "derailed/k9s"
+
+brew "docker"
+brew "derailed/k9s/k9s"
+brew "pyenv"
+brew "gh"
+brew "autojump"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "starship"
+brew "mise"
+brew "zplug"
+brew "fzf"
+brew "saml2aws"
+brew "kubectl"
+brew "kubectx"
+brew "helm"
+brew "jq"
+brew "tree"
+brew "pre-commit"
+brew "awscli"
+
+cask "todoist"
+cask "obsidian"
+cask "bitwarden"
+cask "visual-studio-code"
+cask "google-chrome"
+cask "google-drive"
+cask "contexts"
+cask "iterm2"
+cask "spotify"
+cask "docker"
+cask "adobe-acrobat-reader"
+cask "espanso"
+cask "1password"
+EOF
+
+# Run FZF install
+echo "Setting up FZF..."
+$(brew --prefix)/opt/fzf/install --all --no-bash --no-fish
+
+echo "Packages installed successfully"
+{{ end -}}

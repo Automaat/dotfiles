@@ -1,0 +1,20 @@
+#!/bin/bash
+
+ssh_key_file=~/.ssh/id_ed25519.pub
+
+if [ ! -f "$ssh_key_file" ]; then
+    echo "Generating SSH key..."
+    ssh-keygen -t ed25519 -C "{{ .email }}" -N "" -f ~/.ssh/id_ed25519
+    echo ""
+    echo "SSH key generated at $ssh_key_file"
+    echo ""
+    echo "Add this key to GitHub:"
+    echo "=========================================="
+    cat "$ssh_key_file"
+    echo "=========================================="
+    echo ""
+    echo "Press Enter to continue..."
+    read
+else
+    echo "SSH key already exists at $ssh_key_file"
+fi
