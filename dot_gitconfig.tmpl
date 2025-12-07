@@ -1,0 +1,19 @@
+[user]
+	email = {{ .email }}
+	name = {{ .name }}
+	signingkey = 683BF754A0B005CD
+[pull]
+	rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	autocrlf = input
+[url "ssh://git@github.com/"]
+  	insteadOf = https://github.com/
+[format]
+	signOff = true
+[commit]
+	gpgsign = true
