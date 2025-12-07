@@ -6,6 +6,9 @@ Review my code changes compared to main/master branch and help me clean them up:
 
 **Language-specific standards (apply based on code language):**
 - **Go**: Follow best practices from Effective Go (https://go.dev/doc/effective_go)
+  - Doc comments MUST start with the name being documented: `// FunctionName does...` not `// Does...`
+  - For struct fields: `// FieldName is the...` not `// The field is...`
+  - Error handling MUST be immediately after error is returned - no statements between error return and check
 - **Python**: Follow PEP 8 style guide and Pythonic idioms
 - **Rust**: Follow Rust API Guidelines and idiomatic Rust patterns
 - **TypeScript**: Follow TypeScript best practices and JavaScript Standard Style
@@ -28,6 +31,8 @@ Review my code changes compared to main/master branch and help me clean them up:
 
 3. **Improve structure:**
    - Suggest better variable/function names if current ones are unclear
+   - Split bigger functions into smaller helper functions
+   - Avoid nested ifs - use early returns, guard clauses, or extract to separate functions
    - Identify opportunities to extract reusable functions
    - Point out inconsistent patterns
 
